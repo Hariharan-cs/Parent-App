@@ -9,6 +9,8 @@ import { environment } from "src/environments/environment";
 export class ApiService {
   apiUrl = localStorage.getItem('apiurl');
 
+  // localStorage.setItem('apiurl', 'https://auth-api.onedpo-poc.com');
+
   constructor(private http: HttpClient) {}
 
   validateToken(post: any): Observable<any> {
@@ -20,4 +22,10 @@ export class ApiService {
     console.log("TRIGG AQU");
     return this.http.put<any>(`${this.apiUrl}/acquire-token`, {});
   }
+
+  adconfiguration(): Observable<any> {
+    console.log("TRIGG AD CONG");
+    return this.http.put<any>(`${this.apiUrl}/adconfiguration`, {});
+  }
+
 }

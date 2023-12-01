@@ -81,5 +81,9 @@ export class AppComponent implements OnInit {
     this.apiService.acquireToken().subscribe(x=> console.log(this.title +'Acquire Token From API', x))
   }
 
+  adconfiguration(){
+    this.apiService.adconfiguration().subscribe(x=> console.log(this.title +'Ad Confi From API', x))
+  }
+
 }
 
