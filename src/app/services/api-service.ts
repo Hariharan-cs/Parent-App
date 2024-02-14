@@ -14,11 +14,11 @@ export class ApiService {
 
   validateToken(post: any): Observable<any> {
     console.log("TRIGG VAL",post);
-    return this.http.get<any>(`${this.apiUrl}/set-cookies?accesstoken=${post['accessToken']}`,{ withCredentials: true });
+    return this.http.get<any>(`${this.apiUrl}/api/cookie/set-cookies?accesstoken=${post['accessToken']}`,{ withCredentials: true });
 }
 
   acquireToken(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/get-cookies`,{ withCredentials: true })
+    return this.http.get<any>(`${this.apiUrl}/api/cookie/get-cookies`,{ withCredentials: true })
   }
 
   adconfiguration(): Observable<any> {
