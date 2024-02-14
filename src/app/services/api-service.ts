@@ -8,19 +8,17 @@ import { environment } from "src/environments/environment";
 })
 export class ApiService {
   apiUrl = localStorage.getItem('apiurl');
-
   // localStorage.setItem('apiurl', 'https://auth-api.onedpo-poc.com');
 
   constructor(private http: HttpClient) {}
 
   validateToken(post: any): Observable<any> {
-    console.log("TRIGG VAL");
-    return this.http.put<any>(`${this.apiUrl}/validate-token`, post);
-  }
+    console.log("TRIGG VAL",post);
+    return this.http.get<any>(`${this.apiUrl}/set-cookies?accesstoken=${post['accessToken']}`,{ withCredentials: true });
+}
 
   acquireToken(): Observable<any> {
-    console.log("TRIGG AQU");
-    return this.http.put<any>(`${this.apiUrl}/acquire-token`, {});
+    return this.http.get<any>(`${this.apiUrl}/get-cookies`,{ withCredentials: true })
   }
 
   adconfiguration(): Observable<any> {
